@@ -1,0 +1,138 @@
+// This file contains styling mixins that are provided for convenience
+// They are meant to be overridden or replaced
+
+// Utility Mixins:
+
+@import 'util/UtilityMixins';
+
+@mixin u_styling {
+  text-decoration: underline;
+}
+
+@mixin ul_styling
+{
+  list-style-type: initial;
+  list-style-position: inside;
+}
+
+@mixin ol_styling
+{
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+
+@mixin strong_styling
+{
+  font-weight: var(--yxt-font-weight-bold);
+}
+
+@mixin em_styling
+{
+  font-style: italic;
+}
+
+@mixin rich_text_formatting
+{
+  ul
+  {
+    @include ul_styling;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  li
+  {
+    margin-bottom: var(--yxt-base-spacing);
+  }
+
+  ol
+  {
+    @include ol_styling;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  b,
+  strong
+  {
+    @include strong_styling;
+  }
+
+  em
+  {
+    @include em_styling;
+  }
+
+  u
+  {
+    @include u_styling;
+  }
+
+  a
+  {
+    color: var(--yxt-color-brand-primary);
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none
+    }
+  }
+
+  p + p
+  {
+    margin-top: var(--yxt-base-spacing);
+  }
+}
+
+@mixin Text(
+  $size: var(--yxt-font-size-md),
+  $line-height: var(--yxt-line-height-xs),
+  $weight: var(--yxt-font-weight-normal),
+  $style: normal,
+  $color: var(--yxt-color-text-primary)
+) {
+  font-family: var(--yxt-font-family);
+  font-size: $size;
+  line-height: $line-height;
+  font-weight: $weight;
+  font-style: $style;
+  color: $color;
+}
+
+@mixin TextButton(
+  $padding: 5px 10px,
+  $focus-color: var(--yxt-color-brand-hover)
+) {
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: $padding;
+
+  &:not(:disabled) {
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:focus {
+      color: $focus-color;
+      border: 1px solid $focus-color;
+    }
+  }
+}
+
+@mixin Link {
+  color: var(--yxt-color-brand-primary);
+
+  &:hover,
+  &:focus,
+  &:active
+  {
+    color: var(--yxt-color-brand-primary);
+    text-decoration: underline;
+  }
+}
+

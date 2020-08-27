@@ -1,0 +1,39 @@
+.AnswersUniversalStandard .Answers
+{
+  &-resultsWrapper
+  {
+    flex-grow: 1;
+    padding-top: var(--yxt-base-spacing);
+  }
+
+  &-filtersAndResults
+  {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-directAnswer
+  {
+    .yxt-DirectAnswer-footer
+    {
+      padding: 1rem;
+      @include bplte(xs) {
+        padding: 1.5rem 1rem;
+      }
+    }
+  }
+
+  &-universalResults
+  {
+    width: 100%;
+  }
+
+  &-spellCheck
+  {
+    .yxt-SpellCheck
+    {
+      margin-top: var(--yxt-base-spacing);
+      margin-bottom: var(--yxt-base-spacing);
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "configVersion": "1",
+  "https": true,
+  "templateVersion": 8,
+  "locales": [
+    "en"
+  ],
+  "features": [],
+  "requireArtifactBuild": true,
+  "ci_config": {
+    "build_setup_cmd": "./ci/build_setup.sh",
+    "build_cmd": "./ci/build.sh",
+    "serve_setup_cmd": "./ci/serve_setup.sh",
+    "serve_cmd": "./ci/serve.sh",
+    "rebuild_cmd": "",
+    "output_directories": [ "desktop" ],
+    "dependencies": {
+      "install_deps_cmd": "./ci/install_deps.sh",
+      "required_files": [
+        "package.json",
+        "package-lock.json",
+        "ci/install_deps.sh"
+      ]
+    }
+  }
+}

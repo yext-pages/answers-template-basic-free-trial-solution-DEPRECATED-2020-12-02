@@ -1,0 +1,71 @@
+<script>
+  const sdkVersion = '{{global_config.sdkVersion}}';
+  if (!sdkVersion) {
+    console.error('ERROR: no sdkVersion specified, please specify an sdkVersion in the global_config.');
+  }
+</script>
+<link rel="stylesheet" type="text/css" href="https://assets.sitescdn.net/answers/v{{global_config.sdkVersion}}/answers.css">
+<link rel="stylesheet" type="text/css" href="bundle.css">
+<script src="https://assets.sitescdn.net/answers/v{{global_config.sdkVersion}}/answerstemplates.compiled.min.js"></script>
+<script>
+{{#babel}}
+  function initAnswers() {
+    const JAMBO_INJECTED_DATA = {{{ json env.JAMBO_INJECTED_DATA }}} || {};
+    const pages = JAMBO_INJECTED_DATA.pages || {};
+    const IS_STAGING = HitchhikerJS.isStaging(pages.stagingDomains || []);
+    const injectedConfig = {
+      experienceVersion: IS_STAGING ? 'STAGING' : 'PRODUCTION',
+      {{#with env.JAMBO_INJECTED_DATA}}
+        {{#if businessId}}businessId: "{{businessId}}",{{/if}}
+        {{#with (lookup (lookup (lookup this 'answers') 'experiences') ../global_config.experienceKey)}}
+          {{#if apiKey}}apiKey: "{{apiKey}}",{{/if}}
+        {{/with}}
+      {{/with}}
+    };
+    const userConfig = {
+      {{#with (deepMerge global_config (lookup verticalsToConfig verticalKey) pageSettings) }}
+        ...{{{ json this }}},
+        {{#if verticalLimit}}
+          search: {
+            limit: {{verticalLimit}},
+            ...{{{ json search }}}
+          },
+        {{/if}}
+      {{/with}}
+    };
+    ANSWERS.init({
+      templateBundle: TemplateBundle.default,
+      ...injectedConfig,
+      ...userConfig,
+      onStateChange: (objParams, stringParams, replaceHistory) => {
+        if ('parentIFrame' in window) {
+          parentIFrame.sendMessage(JSON.stringify({
+            params: iframeGetSearchParams(),
+            replaceHistory: replaceHistory
+          }));
+        }
+      },
+      onReady: () => {
+        {{> @partial-block }}
+
+        {{> script/on-ready}}
+
+        {{#if global_config.conversionTrackingEnabled}}
+          ANSWERS.setConversionsOptIn(true);
+        {{/if}}
+
+        ANSWERS.registerHelper('all', function (...args) {
+          return args.filter(item => item).length === args.length;
+        });
+
+        ANSWERS.registerHelper('any', function (...args) {
+          return args.filter(item => item).length > 1;
+        });
+      }
+    });
+    {{> script/after-init}}
+  }
+{{/babel}}
+</script>
+<script src="https://assets.sitescdn.net/answers/v{{global_config.sdkVersion}}/answers.min.js" onload="initAnswers()" async></script>
+
