@@ -51,7 +51,7 @@
       // "label": "", // The name of the vertical in the section header and the navigation bar
       "cardType": "product-prominentimage", // The name of the card to use - e.g. accordion, location, customcard 
       "icon": "tag", // The icon to use on the card for this vertical
-      "universalSectionTemplate": "grid-two-columns"
+      "universalSectionTemplate": "grid-three-columns"
     }
   }
 }
