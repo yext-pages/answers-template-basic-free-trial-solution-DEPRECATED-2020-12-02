@@ -8,7 +8,7 @@ module.exports = function(grunt) {
     },
 	  watch: {
 		  all: {
-		    files: ['cards/**/*.*', 'config/**/*.*', 'pages/**/*.*', 'static/**/*.*', 'partials/**/*.*'],
+		    files: ['cards/**/*.*', 'config/**/*.*', 'layouts/**/*.*', 'pages/**/*.*', 'static/**/*.*', 'partials/**/*.*'],
 		    tasks: ['jambobuild', 'webpack',],
 		    options: {
 		      spawn: false,
