@@ -14,6 +14,7 @@
     <link rel="dns-prefetch" href="//dynl.mktgcdn.com">
     <link rel="dns-prefetch" href="//dynm.mktgcdn.com">
     <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <link rel="dns-prefetch" href="//assets.sitescdn.net">
     <script>
       document.documentElement.lang = {{#if global_config.locale}}"{{global_config.locale}}"{{else}}'en'{{/if}};
     </script>
@@ -33,7 +34,7 @@
     {{/if}}
     <meta property="og:type" content="website">
     {{#if global_config.logo}}
-      <meta property="og:image" content="../{{global_config.logo}}">
+      <meta property="og:image" content="{{global_config.logo}}">
     {{/if}}
     {{#if canonicalUrl}}
       <meta property="og:url" content="{{canonicalUrl}}">
@@ -51,7 +52,7 @@
     {{/if}}
 
     {{#if global_config.favicon}}
-      <link rel="shortcut icon" href="../{{global_config.favicon}}">
+      <link rel="shortcut icon" href="{{global_config.favicon}}">
     {{/if}}
     <script src="bundle.js"></script>
     {{#if global_config.googleAnalyticsId}}

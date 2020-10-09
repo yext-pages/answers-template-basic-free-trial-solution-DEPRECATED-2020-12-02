@@ -46,7 +46,7 @@
     background-color: var(--hh-answers-background-color);
     width: 100%;
     padding-top: var(--yxt-base-spacing);
-    z-index: 99;
+    z-index: $nav-wrapper-z-index;
   }
 
   &-footer
@@ -68,5 +68,21 @@
 
   &-pagination {
     padding-top: calc(var(--yxt-base-spacing) / 2);
+  }
+
+  &-resultsHeader {
+    display: flex;
+    padding-left: 8px;
+
+    .yxt-AppliedFilters,
+    .yxt-VerticalResultsCount,
+    .Hitchhiker-FilterLink {
+      margin-top: 8px;
+      margin-bottom: 4px;
+    }
+  }
+
+  &-verticalResultsCount {
+    margin-right: var(--yxt-base-spacing-sm);
   }
 }

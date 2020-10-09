@@ -1,9 +1,22 @@
+.AnswersVerticalMap
+{
+  .yxt-Card,
+  .yxt-AlternativeVerticals
+  {
+    margin-bottom: 0;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+  }
+}
+
 .AnswersVerticalMap .Answers
 {
   &-resultsWrapper
   {
     display: flex;
     flex-grow: 1;
+    position: relative;
   }
 
   &-verticalResults
@@ -67,8 +80,8 @@
   &-map
   {
     width: 50%;
-    height: 100%;
     min-height: 950px;
+    border-left: var(--yxt-border-default);
 
     @include bplte(xs)
     {

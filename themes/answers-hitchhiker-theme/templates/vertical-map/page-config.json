@@ -22,22 +22,31 @@
     /**
     "Facets": {
       "title": "", // The title to display above the facets
-      "expand": true, // Allow the user to expand and collapse the facets
-      "showMore": true, // Display a link to see more facet options within a facet
+      "expand": false, // Allow the user to expand and collapse the facets
+      "showMore": false, // Display a link to see more facet options within a facet
       "searchOnChange": true // Will automatically run a search as facets are selected or unselected. Set to false to only trigger updates with an Apply button. 
       // Additional options are available in the documentation
     },
     **/
-    "SearchBar": {
-      "placeholderText": "Search" // The placeholder text in the answers search bar
+    /**
+    "FilterLink": {
+      "changeFiltersText": "sorts and filters", // Text that displays by default
+      "resetFiltersText": "reset filters", // Text when filters are applied
+      "clearSearchText": "clear search" // Text when there are no results, conducts an empty search
+    },
+    **/
+    "AppliedFilters": {
+      "removable": true
     },
     "VerticalResults": {
       "noResults": {
         "displayAllResults": true // Optional, whether to display all results in the vertical when no results are found.
       },
-      "appliedFilters": {
-        "removable": true
-      }
+      "hideResultsHeader": true
+    },
+    "SearchBar": {
+      "placeholderText": "Search", // The placeholder text in the answers search bar
+      "allowEmptySearch": true // Allows users to submit an empty search in the searchbar
     },
     "Pagination": {
       "noResults": {
