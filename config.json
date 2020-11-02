@@ -8,6 +8,7 @@
   "features": [],
   "requireArtifactBuild": true,
   "ci_config": {
+    "base_image_tag": "node-12.18",
     "build_setup_cmd": "./ci/build_setup.sh",
     "build_cmd": "./ci/build.sh",
     "serve_setup_cmd": "./ci/serve_setup.sh",
